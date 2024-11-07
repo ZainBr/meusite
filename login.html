@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montagem de Computadores Gamers</title>
+    <style>
+        /* Reset de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* Estilo do login */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://inteligenciasartificial.com.br/wp-content/uploads/2024/08/Os-Desafios-Inesperados-na-Montagem-de-um-PC-Gamer-Uma-Analise-Minuciosa-9298.webp'); /* Adicione a imagem desejada */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background-color: #555;
+        }
+
+        .link-cadastro {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .link-cadastro a {
+            color: #b700ffc5;
+            text-decoration: none;
+        }
+
+        /* Estilo dos componentes */
+        .componentes-container {
+            display: none;
+            background-color: #ffffff;
+            padding: 50px 20px;
+            background-image: url('https://inteligenciasartificial.com.br/wp-content/uploads/2024/08/Os-Desafios-Inesperados-na-Montagem-de-um-PC-Gamer-Uma-Analise-Minuciosa-9298.webp'); /* Adicione a imagem desejada */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .componentes-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .produtos-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .produto {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .produto:hover {
+            transform: scale(1.05);
+        }
+
+        .produto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .produto .info {
+            padding: 15px;
+        }
+
+        .produto h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .produto p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .produto button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .produto button:hover {
+            background-color: #555;
+        }
+
+        .carrinho {
+            background-color: #fff;
+            padding: 15px;
+            border-top: 2px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrinho p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .carrinho button {
+            background-color: #28a745;
+            padding: 12px 20px;
+            font-size: 1rem;
+        }
+
+        .carrinho button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Montagem de Computadores Gamers Personalizados</h1>
+    </header>
+
+    <!-- Container de login -->
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="formLogin" onsubmit="return login()">
+                <input type="email" id="emailLogin" placeholder="Email" required>
+                <input type="password" id="senhaLogin" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <div class="link-cadastro">
+                <p>Não tem uma conta? <a href="index.html">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container de componentes (inicialmente escondido) -->
+    <div class="componentes-container">
+        <h2>Compre os melhores componentes para seu PC Gamer</h2>
+        <div class="produtos-lista">
+            <!-- Produtos -->
+            <div class="produto">
+                <img src="https://lebiscuit.vtexassets.com/arquivos/ids/20282188/17302230330500.jpg?v=638658923011630000" alt="Memória RAM Corsair">
+                <div class="info">
+                    <h3>Memória RAM Corsair 16GB</h3>
+                    <p>R$ 600,00</p>
+                    <button onclick="adicionarCarrinho('Memória RAM Corsair 16GB', 600)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://static.meupc.net/produto/gabinete-rise-mode-galaxy-glass-standard-rmgaggstfw-o2YKX3-L.jpg" alt="Gabinete Rise">
+                <div class="info">
+                    <h3>Gabinete Rise</h3>
+                    <p>R$ 250,00</p>
+                    <button onclick="adicionarCarrinho('Gabinete Rise', 250)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://images.kabum.com.br/produtos/fotos/103280/fonte-xpg-core-reactor-650w-80-plus-gold-modular_fonte-xpg-core-reactor-650w-80-plus-gold-modular_1571153109_g.jpg" alt="Fonte XPG 650W">
+                <div class="info">
+                    <h3>Fonte XPG 650W</h3>
+                    <p>R$ 350,00</p>
+                    <button onclick="adicionarCarrinho('Fonte XPG 650W', 350)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://images.kabum.com.br/produtos/fotos/113129/placa-mae-asrock-z490-steel-legend-intel-lga-1200-atx-ddr4_1594922844_gg.jpg" alt="Placa Mãe ASRock Z490">
+                <div class="info">
+                    <h3>Placa Mãe ASRock Z490</h3>
+                    <p>R$ 900,00</p>
+                    <button onclick="adicionarCarrinho('Placa Mãe ASRock Z490', 900)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://images.kabum.com.br/produtos/fotos/148901/processador-intel-core-i9-11900k-11-geracao-cache-16mb-3-5-ghz-5-1ghz-turbo-lga1200-bx8070811900k_1615489709_gg.jpg" alt="Processador Intel i9">
+                <div class="info">
+                    <h3>Processador Intel i9</h3>
+                    <p>R$ 3.500,00</p>
+                    <button onclick="adicionarCarrinho('Processador Intel i9', 3500)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://media.kingston.com/kingston/features/ktc-features-ssd-renegade.jpg" alt="SSD NVMe Hyper X">
+                <div class="info">
+                    <h3>SSD NVMe Hyper X 500GB</h3>
+                    <p>R$ 550,00</p>
+                    <button onclick="adicionarCarrinho('SSD NVMe Hyper X 500GB', 550)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <img src="https://www.lognetinfo.com.br/imagens/original/23023A.jpg" alt="HD Seagate 2TB">
+                <div class="info">
+                    <h3>HD Seagate 2TB</h3>
+                    <p>R$ 300,00</p>
+                    <button onclick="adicionarCarrinho('HD Seagate 2TB', 300)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="produto">
+                <img src="https://m.media-amazon.com/images/I/613PL5mwULL.jpg" alt="placadevideoNvidiaRTX4060TI">
+                <div class="info">
+                    <h3>RTX4060TI</h3>
+                    <p>R$ 3.700,00</p>
+                    <button onclick="adicionarCarrinho('placadevideoNvidiaRTX4060TI', 300)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrinho -->
+        <div class="carrinho">
+            <div>
+                <h3>Carrinho:</h3>
+                <p id="totalCarrinho">R$ 0,00</p>
+            </div>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024  GamersCo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função de login
+        function login() {
+            const email = document.getElementById('emailLogin').value;
+            const senha = document.getElementById('senhaLogin').value;
+
+            // Recupera os dados armazenados no localStorage
+            const emailCadastrado = localStorage.getItem("emailUsuario");
+            const senhaCadastrada = localStorage.getItem("senhaUsuario");
+
+            // Verifica se o email e a senha estão corretos
+            if (email === emailCadastrado && senha === senhaCadastrada) {
+                alert("Login realizado com sucesso!");
+                // Esconde a tela de login e mostra a tela de componentes
+                document.querySelector('.login-container').style.display = 'none';
+                document.querySelector('.componentes-container').style.display = 'block';
+                return false;  // Impede o envio do formulário
+            } else {
+                alert("Email ou senha incorretos. Tente novamente.");
+                return false; // Impede o envio do formulário
+            }
+        }
+
+        // Carrinho de compras
+        let carrinho = [];
+
+        // Função para adicionar um item ao carrinho
+        function adicionarCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            atualizarCarrinho();
+        }
+
+        // Função para atualizar o carrinho e mostrar o total
+        function atualizarCarrinho() {
+            let total = 0;
+            carrinho.forEach(item => {
+                total += item.preco;
+            });
+
+            // Exibe o valor total do carrinho
+            document.getElementById('totalCarrinho').innerText = `R$ ${total.toFixed(2)}`;
+        }
+
+        // Função para finalizar a compra
+        function finalizarCompra() {
+            if (carrinho.length === 0) {
+                alert("O carrinho está vazio. Adicione itens para continuar.");
+                return;
+            }
+            // Simula o processo de pagamento e redirecionamento
+            alert("Compra finalizada com sucesso! Em breve entraremos em contato.");
+            // Redireciona para a página de checkout
+            window.location.href = "checkout.html";  // A página de checkout
+        }
+    </script>
+
+</body>
+</html>
