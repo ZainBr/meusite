@@ -118,4 +118,39 @@
 
     <script>
         // Função para cadastrar o usuário e salvar as informações no localStorage
-     
+     function cadastrar() {
+        // Obter os valores dos campos
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const aceite = document.getElementById('aceite').checked;
+
+        // Verificar se o usuário aceitou os termos
+        if (!aceite) {
+            alert("Você precisa aceitar os termos de serviço.");
+            return false;
+        }
+
+        // Criar um objeto para armazenar os dados do usuário
+        const usuario = {
+            nome: nome,
+            email: email,
+            senha: senha
+        };
+
+        // Verificar se já existe um cadastro no localStorage
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        // Adicionar o novo usuário ao array
+        usuarios.push(usuario);
+
+        // Salvar o array de usuários no localStorage
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+        // Informar o sucesso e redirecionar ou limpar os campos
+        alert('Cadastro realizado com sucesso!');
+        document.getElementById('formCadastro').reset();
+
+        return false; // Evita o envio do formulário
+    }
+</script>
