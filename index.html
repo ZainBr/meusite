@@ -1,89 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Montagem de Computadores Gamers</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f3f3f3;
-            background-image: url('https://assetsio.gnwcdn.com/Razer-Kraken-V4-Pro-(5).jpg?width=690&quality=75&format=jpg&auto=webp'); /* Adicione o caminho da sua imagem aqui */
-            background-size: cover; /* A imagem irá cobrir toda a tela */
-            background-position: center; /* A imagem ficará centralizada */
-            background-repeat: no-repeat; /* A imagem não será repetida */
-        }
-        header, footer {
-            background-color: #333;
-            color: #fff;
-            padding: 40px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h2 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        form input, form button {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        form input:focus, form button:focus {
-            outline: none;
-            border-color: #000000;
-        }
-        form input {
-            background-color: #f9f9f9;
-        }
-        form button {
-            background-color: #000000;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #b700ffc5;
-        }
-        .aceite {
-            display: flex;
-            align-items: center;
-        }
-        .aceite input {
-            margin-right: 10px;
-        }
-        .link-login {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .link-login a {
-            color: #b700ffc5;
-            text-decoration: none;
-        }
-        .link-login a:hover {
-            text-decoration: underline;
-        }
-        footer p {
-            font-size: 14px;
-            margin: 0;
-        }
+        /* ... seu estilo ... */
     </style>
 </head>
 <body>
@@ -113,54 +36,32 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024  GamersCo. Todos os direitos reservados.</p>
+        <p>&copy; 2024 GamersCo. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Função para cadastrar o usuário e salvar as informações no localStorage
+        // Função para cadastrar o usuário e salvar os dados no localStorage
         function cadastrar() {
-            // Obter os valores dos campos
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
             const aceite = document.getElementById('aceite').checked;
 
-            // Verificar se o usuário aceitou os termos
-            if (!aceite) {
+            if (aceite) {
+                // Salva os dados no localStorage
+                localStorage.setItem('nomeUsuario', nome);
+                localStorage.setItem('emailUsuario', email);
+                localStorage.setItem('senhaUsuario', senha);
+
+                alert("Cadastro realizado com sucesso!");
+                // Redireciona para a página de login
+                window.location.href = 'login.html';
+            } else {
                 alert("Você precisa aceitar os termos de serviço.");
-                return false;
             }
 
-            // Criar um objeto para armazenar os dados do usuário
-            const usuario = {
-                nome: nome,
-                email: email,
-                senha: senha
-            };
-
-            // Verificar se já existe um cadastro no localStorage
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-            // Verificar se já existe um usuário com o mesmo email
-            const usuarioExistente = usuarios.find(usuario => usuario.email === email);
-            if (usuarioExistente) {
-                alert('Já existe um usuário com este email.');
-                return false;
-            }
-
-            // Adicionar o novo usuário ao array
-            usuarios.push(usuario);
-
-            // Salvar o array de usuários no localStorage
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-            // Informar o sucesso e redirecionar ou limpar os campos
-            alert('Cadastro realizado com sucesso!');
-            document.getElementById('formCadastro').reset();
-
-            return false; // Evita o envio do formulário
+            return false; // Impede o envio do formulário
         }
     </script>
 
 </body>
-</html>
